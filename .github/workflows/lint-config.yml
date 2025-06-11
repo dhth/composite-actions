@@ -1,0 +1,28 @@
+name: lint-config
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - "**.yml"
+  pull_request:
+    paths:
+      - "**.yml"
+
+jobs:
+  lint-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint yaml
+        uses: ./.github/actions/lint-yaml
+
+  lint-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Lint actions
+        uses: ./.github/actions/lint-actions
