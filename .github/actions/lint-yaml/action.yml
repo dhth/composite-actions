@@ -6,9 +6,9 @@ inputs:
     description: 'yamlfmt version'
     default: 'v0.17.0'
     required: false
-  path:
-    description: 'path to lint'
-    default: '.'
+  pattern:
+    description: 'file pattern'
+    default: '*.yml'
     required: false
 
 runs:
@@ -26,4 +26,4 @@ runs:
           -lint \
           -quiet \
           -formatter 'retain_line_breaks_single=true' \
-          $(find ${{ inputs.path }} -name '*.yml')
+          $(git ls-files ${{ inputs.pattern }})
