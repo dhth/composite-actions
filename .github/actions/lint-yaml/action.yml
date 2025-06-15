@@ -6,10 +6,6 @@ inputs:
     description: 'yamlfmt version'
     default: 'v0.17.0'
     required: false
-  pattern:
-    description: 'file pattern'
-    default: '*.yml'
-    required: false
 
 runs:
   using: "composite"
@@ -26,4 +22,4 @@ runs:
           -lint \
           -quiet \
           -formatter 'retain_line_breaks_single=true' \
-          $(git ls-files ${{ inputs.pattern }})
+          $(git ls-files '*.yml' '*.yaml')
