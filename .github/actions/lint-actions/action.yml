@@ -2,7 +2,7 @@ name: 'lint-actions'
 description: 'Lints Github Actions workflow files'
 
 inputs:
-  actionlint_version:
+  actionlint-version:
     description: 'actionlint version'
     default: 'v1.7.7'
     required: false
@@ -14,7 +14,7 @@ runs:
       uses: jaxxstorm/action-install-gh-release@6096f2a2bbfee498ced520b6922ac2c06e990ed2 # v2.1.0
       with:
         repo: rhysd/actionlint
-        tag: ${{ inputs.actionlint_version }}
+        tag: ${{ inputs.actionlint-version }}
     - name: Run actionlint
       shell: bash
       run: actionlint
