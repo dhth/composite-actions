@@ -12,4 +12,4 @@ runs:
         repo: EmbarkStudios/cargo-deny
     - name: cargo deny
       shell: bash
-      run: cargo deny check
+      run: cargo deny check --hide-inclusion-graph
