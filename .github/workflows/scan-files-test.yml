@@ -1,0 +1,16 @@
+name: scan-files-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Scan files
+        uses: ./.github/actions/scan-files
+        with:
+          files: './.github/workflows/*.yml'
+          vt-api-key: ${{ secrets.VT_API_KEY }}
