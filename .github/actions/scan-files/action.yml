@@ -19,10 +19,10 @@ runs:
     - name: Install vt-cli
       shell: bash
       run: |
-        ./install-vt.sh "${{ inputs.vt-version }}"
+        ${{ github.action_path }}/install-vt.sh "${{ inputs.vt-version }}"
     - name: Run scan
       shell: bash
       env:
         VTCLI_APIKEY: ${{ inputs.vt-api-key }}
       run: |
-        ./scan.sh "${{ inputs.files }}"
+        ${{ github.action_path }}/scan.sh "${{ inputs.files }}"
