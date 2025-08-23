@@ -25,4 +25,4 @@ runs:
       env:
         VTCLI_APIKEY: ${{ inputs.vt-api-key }}
       run: |
-        ${{ github.action_path }}/scan.sh "${{ inputs.files }}"
+        bash -c '${{ github.action_path }}/scan.sh ${{ inputs.files }}'

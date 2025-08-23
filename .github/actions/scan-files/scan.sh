@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-temp_dir=$(mktemp -d -t vt-scan)
+set -euo pipefail
+
+temp_dir=$(mktemp -d -t vt-scanXXXXX)
 echo "Created temporary directory: ${temp_dir}"
 
 exit_code=0
