@@ -69,12 +69,12 @@ exit_code=0
 failed_files=()
 
 for file in "$@"; do
-    echo ""
+    echo -e "\n\n"
     file_hash=$(echo -n "$file" | shasum -a 256 | cut -d' ' -f1 | head -c 8)
     results_file_name=$(echo "$file" | tr '/' '-' | sed 's/^[.-]*//')
     result_file="$temp_dir/${results_file_name}-${file_hash}.yml"
 
-    echo "Scanning: $file"
+    echo "🔎 Scanning: $file"
 
     if ! vt scan file --silent --wait --include '_id,last_analysis_stats' "$file" >"$result_file"; then
         echo "❌ Failed to scan: $file"
