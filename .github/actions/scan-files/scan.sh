@@ -113,14 +113,15 @@ for file in "$@"; do
     elif grep -qE "(malicious|suspicious): [1-9]" "$result_file"; then
         echo "⚠️  Issues detected in: $file"
         cat "$result_file"
-        file_id=$(grep -o '_id: "[^"]*"' "$result_file" | cut -d'"' -f2)
-        if [ -n "$file_id" ]; then
-            echo "🔗 View details: https://www.virustotal.com/gui/file/${file_id}"
-        fi
         failed_files+=("$file")
         exit_code=1
     else
         echo "✅ No issues found in: $file"
+    fi
+
+    file_id=$(grep -o '_id: "[^"]*"' "$result_file" | cut -d'"' -f2)
+    if [ -n "$file_id" ]; then
+        echo "Details: https://www.virustotal.com/gui/file/${file_id}"
     fi
 done
 
