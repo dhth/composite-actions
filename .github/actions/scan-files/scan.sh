@@ -69,7 +69,7 @@ exit_code=0
 failed_files=()
 
 for file in "$@"; do
-    echo -e "\n\n"
+    echo -e "\n"
     file_hash=$(echo -n "$file" | shasum -a 256 | cut -d' ' -f1 | head -c 8)
     results_file_name=$(echo "$file" | tr '/' '-' | sed 's/^[.-]*//')
     result_file="$temp_dir/${results_file_name}-${file_hash}.yml"
