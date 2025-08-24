@@ -31,7 +31,7 @@ echo "Installing vt-cli ${VT_VERSION} for ${PLATFORM}..."
 temp_dir=$(mktemp -d)
 cd "$temp_dir"
 
-curl -L "https://github.com/VirusTotal/vt-cli/releases/download/${VT_VERSION}/${PLATFORM}.zip" -o vt.zip
+curl -sSLf "https://github.com/VirusTotal/vt-cli/releases/download/${VT_VERSION}/${PLATFORM}.zip" -o vt.zip
 unzip -q vt.zip
 
 install_dir="$HOME/.local/bin"
