@@ -1,0 +1,20 @@
+name: 'lint-go'
+description: 'Run golangci-lint on Go code'
+
+inputs:
+  golangci-lint-version:
+    description: 'golangci-lint version'
+    default: 'v2.8.0'
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Go
+      uses: actions/setup-go@v6
+      with:
+        go-version-file: 'go.mod'
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v9
+      with:
+        version: ${{ inputs.golangci-lint-version }}
